@@ -4,6 +4,7 @@ import LocationService from '@/store/Services/location';
 export default function handler(req, res) {
     switch (req.method) {
         case 'POST':
+            console.log('POST');
             createDeliveryLocation(req, res);
             break;
     }
@@ -14,7 +15,9 @@ const createDeliveryLocation = async (req, res) => {
         console.log(req.body);
 
         const locationService = new LocationService();
-        const { username, start, end, scheduleDateTime } = req.body;
+        const { username, start, end, scheduleDateTime } = JSON.parse(req.body);
+        console.log(username, start, end);
+
         await locationService.add(
             { username, start, end, scheduleDateTime },
             (message, response) => {
