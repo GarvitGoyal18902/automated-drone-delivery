@@ -46,6 +46,7 @@ export default function Home() {
             console.log(start);
             console.log(end);
             const result = await add({ username, start, end });
+            setUsername('');
             console.log(result);
         } else {
             alert('Missing Some Values');
