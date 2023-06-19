@@ -7,16 +7,33 @@ export default function handler(req, res) {
             console.log('POST');
             createDeliveryLocation(req, res);
             break;
+        case 'GET':
+            getDeliveryLocation(req, res);
+            break;
     }
 }
 
+const getDeliveryLocation = async (req, res) => {
+    try {
+        const locationService = new LocationService();
+
+        await locationService.get((message, response) => {
+            if (message.success) {
+                res.status(200).json({ message, response });
+            } else {
+                res.status(500).json({ message, response });
+            }
+        });
+    } catch (error) {
+        console.log('ERROR GETTING LOCATION', error);
+        res.status(500).json({ message, response });
+    }
+};
+
 const createDeliveryLocation = async (req, res) => {
     try {
-        console.log(req.body);
-
         const locationService = new LocationService();
         const { username, start, end, scheduleDateTime } = JSON.parse(req.body);
-        console.log(username, start, end);
 
         await locationService.add(
             { username, start, end, scheduleDateTime },
