@@ -1,6 +1,6 @@
 import { Inter } from 'next/font/google';
 import { useState } from 'react';
-import { add } from './services/Location';
+import { add } from '../components/services/Location';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -101,6 +101,10 @@ export default function Home() {
                         }>
                         <option value="">Select Pickup Location</option>
                         <option value="canteen">Canteen</option>
+                        <option value="BH1">BH1</option>
+                        <option value="BH2">BH2</option>
+                        <option value="BH3">BH3</option>
+                        <option value="BH4">BH4</option>
                     </select>
                 </div>
 
@@ -116,7 +120,10 @@ export default function Home() {
                         onChange={(event) =>
                             onInputChangeHandler('end', event)
                         }>
-                        <option value="bh4">BH4</option>
+                        <option value="BH1">BH1</option>
+                        <option value="BH2">BH2</option>
+                        <option value="BH3">BH3</option>
+                        <option value="BH4">BH4</option>
                     </select>
                 </div>
 
