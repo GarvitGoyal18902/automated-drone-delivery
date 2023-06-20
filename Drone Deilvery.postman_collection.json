@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "74971b3e-d3cd-46aa-97ba-649de4360d09",
+		"name": "Drone Deilvery",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2817591"
+	},
+	"item": [
+		{
+			"name": "Get First Pending Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/location",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Delivery Status",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"deliveryStatus\": \"pickedup\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/location/648ffdddb368f313c1987c1b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"location",
+						"648ffdddb368f313c1987c1b"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
